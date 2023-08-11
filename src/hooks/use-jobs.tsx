@@ -24,7 +24,7 @@ export const useJobDetails = (uuid: string) => {
         if (job?.status === "completed" || job?.status === "failed") {
           return Infinity;
         }
-        return 2000;
+        return 500;
       },
     }
   );
