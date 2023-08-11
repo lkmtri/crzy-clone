@@ -4,6 +4,7 @@ import { Job } from "@/types";
 import git from "isomorphic-git";
 import http from "isomorphic-git/http/web";
 import LightningFS from "@isomorphic-git/lightning-fs";
+import { getAuthUrl } from "../url";
 
 const corsProxy = "https://cors.isomorphic-git.org";
 
@@ -12,7 +13,7 @@ export const runJob = async (job: Job) => {
   const fs = new LightningFS("fs");
   const pfs = fs.promises;
   const fileName = "commit.log";
-
+  const url = getAuthUrl(job.url, job.auth);
   await pfs.mkdir(dir);
 
   // Clone repo to directory
@@ -21,7 +22,7 @@ export const runJob = async (job: Job) => {
     http,
     dir,
     corsProxy,
-    url: job.url,
+    url,
     singleBranch: true,
     depth: 1,
   });

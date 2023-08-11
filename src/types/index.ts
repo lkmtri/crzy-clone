@@ -1,5 +1,10 @@
 export type Status = "queued" | "in-progress" | "completed" | "failed";
 
+export interface PasswordAuth {
+  username: string;
+  password: string;
+}
+
 export interface JobState {
   startTime: number;
   endTime: number | null;
@@ -8,6 +13,7 @@ export interface JobState {
 }
 
 export interface Job extends JobState {
+  auth: PasswordAuth;
   uuid: string;
   url: string;
 }

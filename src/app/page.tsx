@@ -23,9 +23,24 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-2">
-              <Label htmlFor="git_url">Git repo URL</Label>
-              <Input id="git_url" name="git_url" type="url" required />
+            <div className="space-y-3">
+              <div className="space-y-1">
+                <Label htmlFor="git_url">Git repo URL</Label>
+                <Input id="git_url" name="git_url" type="url" required />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="git_username">Username</Label>
+                <Input id="git_username" name="git_username" required />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="git_password">Password</Label>
+                <Input
+                  id="git_password"
+                  name="git_password"
+                  type="password"
+                  required
+                />
+              </div>
             </div>
           </CardContent>
           <CardFooter>

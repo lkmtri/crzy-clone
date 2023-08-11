@@ -9,7 +9,10 @@ const serverModeEnabled = process.env.SERVER_MODE_ENABLED === "true";
 
 export async function cloneGitRepo(data: FormData) {
   const url = data.get("git_url") as string;
-  const job = await createJob(url);
+  const username = data.get("git_username") as string;
+  const password = data.get("git_password") as string;
+
+  const job = await createJob(url.toString(), { username, password });
 
   if (serverModeEnabled) {
     await updateJobStatus(job.uuid, "in-progress");

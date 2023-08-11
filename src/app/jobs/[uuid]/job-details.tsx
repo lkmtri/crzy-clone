@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import dayjs from "dayjs";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";

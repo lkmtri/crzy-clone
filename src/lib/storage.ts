@@ -3,7 +3,7 @@
 import { kv } from "@vercel/kv";
 import { v4 } from "uuid";
 import dayjs from "dayjs";
-import type { Job, Status } from "@/types";
+import type { Job, PasswordAuth, Status } from "@/types";
 
 const terminalStatuses: Status[] = ["completed", "failed"];
 
@@ -11,9 +11,10 @@ export const getJob = async (uuid: string) => {
   return kv.get<Job>(uuid);
 };
 
-export const createJob = async (url: string) => {
+export const createJob = async (url: string, auth: PasswordAuth) => {
   const uuid = v4();
   const job: Job = {
+    auth,
     uuid,
     url,
     status: "queued",
