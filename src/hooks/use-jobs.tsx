@@ -35,7 +35,7 @@ export const useJobDetails = (uuid: string) => {
 export const useJobTrigger = () => {
   const { mutate } = useMutation({
     mutationFn: async (job: Job) => {
-      if (job.status !== "created") {
+      if (job.status !== "queued") {
         return;
       }
       await updateJobStatus(job.uuid, "in-progress");

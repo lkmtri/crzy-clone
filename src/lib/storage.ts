@@ -16,7 +16,7 @@ export const createJob = async (url: string) => {
   const job: Job = {
     uuid,
     url,
-    status: "created",
+    status: "queued",
     startTime: dayjs().unix(),
     endTime: null,
     error: null,

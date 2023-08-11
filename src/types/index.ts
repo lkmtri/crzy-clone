@@ -1,4 +1,4 @@
-export type Status = "created" | "in-progress" | "completed" | "failed";
+export type Status = "queued" | "in-progress" | "completed" | "failed";
 
 export interface JobState {
   startTime: number;

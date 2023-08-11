@@ -17,7 +17,7 @@ import { Status } from "@/types";
 import { useJobDetails, useJobTrigger } from "@/hooks/use-jobs";
 
 const statusDisplay: Record<Status, string> = {
-  created: "Created",
+  queued: "Queued",
   completed: "Completed",
   failed: "Failed",
   "in-progress": "In Progress",
@@ -73,11 +73,6 @@ export function JobDetails({ uuid }: { uuid: string }) {
       key: "status",
       title: "Status",
       description: statusDisplay[job.status],
-    },
-    {
-      key: "startTime",
-      title: "Start time",
-      description: dayjs.unix(job.startTime).format("HH:MM MMM-DD-YYYY"),
     },
   ];
 
